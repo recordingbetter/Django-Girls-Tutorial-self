@@ -1,0 +1,10 @@
+h1 {
+  color: #FCA205;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
+  font-size: 40px;
+}
+
+h1a:hover {
+  color: #C57E21;
+}

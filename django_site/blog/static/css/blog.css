@@ -1,0 +1,33 @@
+.page-header {
+  background-color: #ff9400;
+  margin-top: 0;
+  padding: 20px 20px 20px 40px;
+}
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+  color: #ffffff;
+  font-family: 'Merriweather', serif;
+  font-size: 36pt;
+  text-decoration: none;
+}
+
+div.post .post_title {
+  font-family: 'Merriweather', serif;
+  font-weight: normal;
+  font-size: 30px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+div.post .author {
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+div.post .text {
+  font-family: 'Raleway', sans-serif;
+  font-weight: normal;
+  font-size: 15px;
+  padding-top: 10px;
+}
