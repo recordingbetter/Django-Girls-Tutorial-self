@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.utils import timezone
 
-from blog.forms import PostCreateForm
+from blog.forms import PostCreateForm, PostModifyForm
 from .models import Post
 
 
@@ -34,8 +34,29 @@ def post_create(request):
         data = request.POST
         form = PostCreateForm(request.POST)
         post = Post.objects.create(
-            title=form['title'],
-            text=form['text'],
+            title=form['title_create'],
+            text=form['text_create'],
             author=User.objects.first()
         )
         return redirect('post_detail', pk=post.pk)
+
+
+def post_modify(request, pk):
+    post = Post.objects.get(pk=pk)
+    if request.method == 'GET':
+        form = PostModifyForm(initial = {'title_modify': post.title, 'text_modify': post.text})
+        context = {
+            'form': form,
+            'post': post,
+        }
+        return render(request, 'blog/post_modify.html', context)
+    elif request.method == 'POST':
+        form = PostModifyForm(request.POST)
+        if form.is_valid():
+            title = form.cleaned_data['title_modify']
+            text = form.cleaned_data['text_modify']
+            post.title = title
+            post.text = text
+            post.save()
+        return redirect('post_detail', pk=post.pk)
+
