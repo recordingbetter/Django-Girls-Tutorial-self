@@ -6,6 +6,6 @@
     <h2 class="post_title"><a href="#">{{ post.title }}</a></h2>
     <span class="published_date">{{ post.published_date }}</span>
     <span class="author pull-right">Author : {{ post.author }}</span>
-    <p class="text">{{ post.text }}</p>
+    <p class="text">{{ post.text|linebreaksbr }}</p>
 </div>
 {% endblock %}

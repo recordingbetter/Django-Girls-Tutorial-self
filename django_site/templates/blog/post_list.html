@@ -6,7 +6,7 @@
     <h2 class="post_title"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
     <span class="published_date">{{ post.published_date }}</span>
     <span class="author pull-right">Author : {{ post.author }}</span>
-    <p class="text">{{ post.text|truncatechars:120 }}</p>
+    <p class="text">{{ post.text|truncatechars:120|striptags }}</p>
 </div>
 {% endfor %}
 
